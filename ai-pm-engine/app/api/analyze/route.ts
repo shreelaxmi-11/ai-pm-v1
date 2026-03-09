@@ -9,8 +9,9 @@ EXTRACTION RULES - read every source carefully:
 3. For latency: extract any specific ms/s numbers mentioned. If only qualitative ("fast", "real-time"), say that and mark "inferred".
 4. For cost: extract exact pricing from sources. If not found, use your training knowledge and mark "inferred".
 5. For hardware/framework: extract from engineering blogs, job listings, or official docs in the sources.
-6. Confidence labels: "confirmed" = explicitly stated in a source. "inferred" = reasoned from related evidence. "unknown" = genuinely not findable.
-7. NEVER say "Not publicly disclosed" or "N/A" without a good reason - dig into the sources first.
+6. Confidence labels: "confirmed" = explicitly stated in a source. "inferred" = reasoned from related evidence. "unknown" = last resort only.
+7. NEVER say "N/A" for context window - for voice features say e.g. "processes audio clips up to X minutes". NEVER leave model name as unknown - infer from chip (Snapdragon NPU = likely on-device ASR, Exynos = Samsung Neural Engine).
+8a. thirtyDayPlan: ALWAYS include all 4 weeks. This is mandatory - do not skip it.
 8. pmInsights: must contain specific numbers, real decisions, and concrete trade-offs. No generic advice.
 9. infraDiagram: use REAL component names from the sources. 4-5 layers minimum.
 10. Return ONLY raw JSON starting with { ending with }.
@@ -166,7 +167,7 @@ FOR EACH FIELD:
 - If truly not anywhere: mark "unknown" (avoid this)
 - NEVER use "N/A" - always describe what the feature actually processes
 
-Return ONLY raw JSON, no markdown, no backticks.`;
+IMPORTANT: thirtyDayPlan with all 4 weeks is required. Return ONLY raw JSON, no markdown, no backticks.`;
 
         send("status", { step: 3, message: "Extracting fields and PM signals…" });
 
