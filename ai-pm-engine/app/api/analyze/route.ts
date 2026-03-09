@@ -76,7 +76,13 @@ JSON structure:
     { "layer": "Output Layer", "description": "Response delivery", "components": [] },
     { "layer": "Observability Layer", "description": "Monitoring and quality", "components": [] }
   ],
-  "sources": [{ "title": "string", "url": "string", "type": "official|article|analysis" }]
+  "sources": [{ "title": "string", "url": "string", "type": "official|article|analysis" }],
+  "thirtyDayPlan": [
+    { "week": "Week 1", "action": "specific action for this feature", "why": "why this is highest leverage first", "deliverable": "concrete output e.g. spreadsheet, dashboard, doc", "success": "measurable criteria with number" },
+    { "week": "Week 2", "action": "specific action", "why": "why this follows week 1", "deliverable": "concrete output", "success": "measurable criteria" },
+    { "week": "Week 3", "action": "specific action", "why": "why this is right for week 3", "deliverable": "concrete output", "success": "measurable criteria" },
+    { "week": "Week 4", "action": "specific action", "why": "why this closes the first month", "deliverable": "concrete output", "success": "measurable criteria" }
+  ]
 }`;
 
 async function searchTavily(query: string, key: string) {
